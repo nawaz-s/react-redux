@@ -24,10 +24,38 @@ export const fetchUsersFailure = (error) => {
 export const fetchUsers = () => {
     return (dispatch) => {
         dispatch(fetchUsersRequest());
-        axios.get('https://jsonplaceholder.typicode.com/users')
+        axios.get('https://61b095283c954f001722a4a6.mockapi.io/api/user/users')
         .then(response => {
             const users = response.data;
             dispatch(fetchUsersSuccess(users))
+        })
+        .catch(err => {
+            const errorMsg = err.message;
+            dispatch(fetchUsersFailure(errorMsg));
+        })
+    }
+}
+
+export const editUser = (id, data) => {
+    return (dispatch) => {
+        dispatch(fetchUsersRequest());
+        axios.put(`https://61b095283c954f001722a4a6.mockapi.io/api/user/users/${id}`, data)
+        .then(response => {
+            dispatch(fetchUsers())
+        })
+        .catch(err => {
+            const errorMsg = err.message;
+            dispatch(fetchUsersFailure(errorMsg));
+        })
+    }
+}
+
+export const deleteUser = (id) => {
+    return (dispatch) => {
+        dispatch(fetchUsersRequest());
+        axios.delete(`https://61b095283c954f001722a4a6.mockapi.io/api/user/users/${id}`)
+        .then(response => {
+            dispatch(fetchUsers())
         })
         .catch(err => {
             const errorMsg = err.message;
