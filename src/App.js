@@ -6,8 +6,13 @@ import './App.css';
 // import IceCreamContainer from './components/IceCreamContainer';
 // import NewCakeContainer from './components/NewCakeContainer';
 // import ItemContainer from './components/ItemContainer';
-import UserContainer from './components/UserContainer';
+//import UserContainer from './components/UserContainer';
 import 'bootstrap/dist/css/bootstrap.min.css';
+//import { UserProvider } from './components/context/UserProvider';
+//import Page from './components/context/Page';
+//import Profile from './components/context/Profile';
+import FunctionalApp from './components/context/FunctionalApp';
+import ClassApp from './components/context/ClassApp';
 
 function App() {
   return (
@@ -19,7 +24,13 @@ function App() {
         <NewCakeContainer />
         <ItemContainer cake />
         <ItemContainer /> */}
-        <UserContainer />
+        {/* <UserContainer /> */}
+        {/* <UserProvider>
+          <Page />
+          <Profile />
+        </UserProvider> */}
+        <FunctionalApp />
+        <ClassApp />
       </div>
     </Provider>
   );
